@@ -2,7 +2,7 @@ import { createError, eventHandler, getQuery } from 'h3'
 
 export default eventHandler(async (event) => {
   const query = getQuery(event)
-  const id = query.id as string
+  let id = query.id as string
   const target = query.target as string
 
   if (!id) {
@@ -23,6 +23,8 @@ export default eventHandler(async (event) => {
   const { KV } = cloudflare.env
 
   // First, get the link by slug
+  id = id.toLowerCase()
+
   const existingLink = await KV.get(`link:${id}`, { type: 'json' })
 
   if (!existingLink) {
@@ -32,10 +34,17 @@ export default eventHandler(async (event) => {
     })
   }
 
+  if (!existingLink.url?.startsWith('https://waytoagi.me/bind_short')) {
+    throw createError({
+      status: 409,
+      statusText: 'Slug is reserved',
+    })
+  }
+
   // Update the link URL
   const newLink = {
     ...existingLink,
-    url: `https://waytoagi.me/${target}`,
+    url: `https://page.waytoagi.me/${target}`,
     updatedAt: Math.floor(Date.now() / 1000),
   }
 
