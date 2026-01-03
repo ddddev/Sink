@@ -1,6 +1,6 @@
 # Deployment on Cloudflare Pages
 
-1. [Fork](https://github.com/ccbikai/Sink/fork) the repository to your GitHub account.
+1. [Fork](https://github.com/miantiao-me/Sink/fork) the repository to your GitHub account.
 2. Create a project in [Cloudflare Pages](https://developers.cloudflare.com/pages/).
 3. Select the `Sink` repository and choose the `Nuxt.js` preset.
 4. Configure the following environment variables:
@@ -20,4 +20,4 @@
 7. Add Compatibility flags
    - Go to **Settings** -> **Runtime** -> **Compatibility flags** and set the following flags `nodejs_compat`.
 8. Redeploy the project.
-9. To update code, refer to the official GitHub documentation [Syncing a fork branch from the web UI](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-branch-from-the-web-ui "GitHub: Syncing a fork").
+9. To update code, refer to the official GitHub documentation [Syncing a fork branch from the web UI](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-branch-from-the-web-ui 'GitHub: Syncing a fork').
